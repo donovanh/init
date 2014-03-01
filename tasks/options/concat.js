@@ -3,6 +3,12 @@
  */
 'use strict';
 
+var xtend = require('xtend');
 var pages = require('../../pages');
+var customConcat = {};
 
-module.exports = pages;
+if (process.grunt.file.exists('./concat.js')) {
+	customConcat = require('../../concat');
+}
+
+module.exports = xtend(pages, customConcat);

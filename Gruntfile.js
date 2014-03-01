@@ -28,10 +28,14 @@ var loadConfig = function (path) {
  */
 module.exports = function (grunt) {
 
+	var config;
+
 	// Measure time of grunt tasks
 	require('time-grunt')(grunt);
 
-	var config = xtend({
+	process.grunt = grunt;
+
+	config = xtend({
 		pkg: require('./package')
 	}, loadConfig('./tasks/options/'));
 
